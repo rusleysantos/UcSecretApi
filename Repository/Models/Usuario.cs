@@ -12,7 +12,7 @@ namespace Repository.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID_USUARIO")]
         public int idUsuario { get; set; }
-        public 
+        //public 
         
 
         //[Column("ID_CATEGORIA_PARTIDA")]
