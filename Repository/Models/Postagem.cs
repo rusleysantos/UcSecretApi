@@ -12,18 +12,24 @@ namespace Repository.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID_POSTAGEM")]
         public int idPostagem { get; set; }
+
+        [Column("DESCRICAO")]
         public string Descricao { get; set; }
+
+        [Column("DATA_HORA_POSTAGEM")]
         public DateTime DataHoraPostagem { get; set; }
+
+        [Column("ATIVA")]
         public bool Ativa { get; set; }
 
         [Column("ID_USUARIO_POSTAGEM")]
         [ForeignKey("idUsuario")]
-        public virtual Usuario Usuario { get; set; }
         public int idUsuario { get; set; }
+        public virtual Usuario Usuario { get; set; }
 
         [Column("ID_CUSTOMIZACAO_POSTAGEM")]
         [ForeignKey("idCustomizacaoPostagem")]
-        public virtual CustomizacaoPostagem CustomizacaoPostagem { get; set; }
         public int idCustomizacaoPostagem { get; set; }
+        public virtual CustomizacaoPostagem CustomizacaoPostagem { get; set; }
     }
 }

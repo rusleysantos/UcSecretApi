@@ -6,13 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Repository.Models
 {
-    public class LinhaTempo
+    public class ReacaoPostagem
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("ID_LINHA_TEMPO")]
-        public int idLinhaTempo { get; set; }
+        [Column("ID_REACAO_POSTAGEM")]
+        public int idReacaoPostagem { get; set; }
 
-
+        [Column("DESCRICAO")]
+        public string Descricao { get; set; }
     }
 }

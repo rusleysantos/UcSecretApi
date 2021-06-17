@@ -6,19 +6,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Repository.Models
 {
-    public class Reacao
+    public class FotoUsuario
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("ID_REACAO")]
-        public int idReacao { get; set; }
+        [Column("ID_FOTO_USUARIO")]
+        public int idFotoUsuario { get; set; }
+
+        [Column("ARRAY_BYTE")]
+        public byte ArrayByte { get; set; }
 
         [Column("DESCRICAO")]
         public string Descricao { get; set; }
-
-        [Column("USUARIO_REACAO")]
-        [ForeignKey("idUsuario")]
-        public int idUsuario { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }

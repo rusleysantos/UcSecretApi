@@ -14,12 +14,12 @@ namespace Repository.Models
         public int idCustomizacaoPostagem { get; set; }
         
         [Column("COR")]
-        public int Cor { get; set; }
+        public string Cor { get; set; }
 
         [Column("ID_CUSTOMIZACAO_POSTAGEM_")]
         [ForeignKey("idFotoFundoPostagem")]
-        public virtual FotoFundoPostagem FotoFundoPostagem { get; set; }
         public int? idFotoFundoPostagem { get; set; }
+        public virtual FotoFundoPostagem FotoFundoPostagem { get; set; }
 
     }
 }

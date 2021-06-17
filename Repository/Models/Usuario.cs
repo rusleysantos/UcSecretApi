@@ -12,12 +12,15 @@ namespace Repository.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("ID_USUARIO")]
         public int idUsuario { get; set; }
-        //public 
-        
 
-        //[Column("ID_CATEGORIA_PARTIDA")]
-        //[ForeignKey("idCategoria")]
-        //public virtual Categoria Categoria { get; set; }
-        //public int? idCategoria { get; set; }
+        [Column("NOME")]
+        public string Nome { get; set; }
+
+        [Column("SENHA")]
+        public string Senha { get; set; }
+
+        [Column("EMAIL")]
+        public string Email { get; set; }
+
     }
 }
