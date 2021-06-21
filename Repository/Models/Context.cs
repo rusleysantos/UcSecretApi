@@ -36,8 +36,8 @@ namespace Repository.Models
         public DbSet<Controle> CONTROLES { get; set; }
         public DbSet<CustomizacaoPostagem> CUSTOMIZACOES_POSTAGEM { get; set; }
         public DbSet<FotoFundoPostagem> FOTOS_FUNDO_POSTAGEM { get; set; }
-        public DbSet<FotoUsuario> FOTOS_USUARIO { get; set; }
-        public DbSet<Postagem> POSTAGEM { get; set; }
+        public DbSet<FotoUsuario> FOTOS_USUARIOS { get; set; }
+        public DbSet<Postagem> POSTAGENS { get; set; }
         public DbSet<PostagemControle> POSTAGENS_CONTROLES { get; set; }
         public DbSet<Reacao> REACOES { get; set; }
         public DbSet<ReacaoPostagem> REACOES_POSTAGENS { get; set; }

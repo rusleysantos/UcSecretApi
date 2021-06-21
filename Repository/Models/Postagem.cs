@@ -29,7 +29,7 @@ namespace Repository.Models
 
         [Column("ID_CUSTOMIZACAO_POSTAGEM")]
         [ForeignKey("idCustomizacaoPostagem")]
-        public int idCustomizacaoPostagem { get; set; }
+        public int? idCustomizacaoPostagem { get; set; }
         public virtual CustomizacaoPostagem CustomizacaoPostagem { get; set; }
     }
 }
