@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Contracts
 {
-    public interface IPostagemRepository
+    public interface IPostagemService
     {
         public Task<bool> CriarPostagem(PostagemDTO postagem);
         public Task<bool> DesativarPostagem(int idPostagem);

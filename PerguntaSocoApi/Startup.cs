@@ -60,12 +60,12 @@ namespace PerguntaSocoApi
 
             services.AddControllers();
             services.AddScoped(typeof(Context));
-        
+
             services.AddScoped<IPostagemRepository, PostagemRepository>();
-            //services.AddScoped<ICategoriaRepository, CategoriaRepository>();
-            //services.AddScoped<ITokenService, TokenService>();
-            //services.AddScoped<ILoginService, LoginService>();
-            //services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IReacaoRepository, ReacaoRepository>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IControleRepository,ControleRepository> ();
             //services.AddScoped<IOpcaoRepository, OpcaoRepository>();
             //services.AddScoped<IOpcaoService, OpcaoService>();
             //services.AddScoped<IEnunciadoRepository, EnunciadoRepository>();

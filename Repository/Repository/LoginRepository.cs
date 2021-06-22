@@ -22,28 +22,28 @@ namespace Repository.Repository
         public async Task<LoginDTO> Login(LoginDTO login)
         {
 
-            //var loginReturn = await _con
-            //                        .USUARIOS
-            //                        .Where(x => x.Nome == login.Username
-            //                               &&
-            //                               x.Senha == login.Password)
-            //                        .Select(x => new LoginDTO
-            //                        {
-            //                            idUser = x.idUsuario,
-            //                            Username = login.Username
-            //                        }).FirstOrDefaultAsync();
+            var loginReturn = await _con
+                                    .USUARIOS
+                                    .Where(x => x.Nome == login.Username
+                                           &&
+                                           x.Senha == login.Password)
+                                    .Select(x => new LoginDTO
+                                    {
+                                        idUser = x.idUsuario,
+                                        Username = login.Username
+                                    }).FirstOrDefaultAsync();
 
 
-            //if (loginReturn != null)
-            //{
-            //    loginReturn.AuthorizationStatus = true;
-            //    return loginReturn;
-            //}
-            //else
-            //{
-            //    login.AuthorizationStatus = false;
-            //    return login;
-            //}
+            if (loginReturn != null)
+            {
+                loginReturn.AuthorizationStatus = true;
+                return loginReturn;
+            }
+            else
+            {
+                login.AuthorizationStatus = false;
+                return login;
+            }
 
             throw new NotImplementedException();
         }

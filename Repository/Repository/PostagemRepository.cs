@@ -33,14 +33,12 @@ namespace Repository.Repository
                 });
 
                 await _con.SaveChangesAsync();
+
+                postagemAdicionar.idCustomizacaoPostagem = customizacao.Entity.idFotoFundoPostagem;
             }
 
             postagemAdicionar.Ativa = false;
             postagemAdicionar.DataHoraPostagem = DateTime.Now;
-            if (postagem.Customizada)
-            {
-                postagemAdicionar.idCustomizacaoPostagem = customizacao.Entity.idFotoFundoPostagem;
-            }
             postagemAdicionar.Descricao = postagem.Descricao;
             postagemAdicionar.idUsuario = postagem.idUsuario;
 
@@ -77,6 +75,22 @@ namespace Repository.Repository
             {
                 return false;
             }
+        }
+
+        public async Task<List<Postagem>> RetornarPostagemPaginada(int pagina, int quantidade)
+        {
+            return await _con.POSTAGENS
+                          .Skip((pagina - 1) * quantidade)
+                          .Take(quantidade)
+                          .ToListAsync();
+        }
+
+        public async Task<List<FotoFundoPostagem>> RetornarFotoFundoPostagemPaginada(int pagina, int quantidade)
+        {
+            return await _con.FOTOS_FUNDO_POSTAGEM
+                         .Skip((pagina - 1) * quantidade)
+                         .Take(quantidade)
+                         .ToListAsync();
         }
     }
 }
