@@ -24,22 +24,22 @@ namespace Service.Services
 
         public Task<bool> DesativarPostagem(int idPostagem)
         {
-            throw new NotImplementedException();
+            return _repo.DesativarPostagem(idPostagem);
         }
 
         public Task<List<FotoFundoPostagem>> RetornarFotoFundoPostagemPaginada(int pagina, int quantidade)
         {
-            throw new NotImplementedException();
+            return _repo.RetornarFotoFundoPostagemPaginada(pagina,quantidade);
         }
 
         public Task<List<Postagem>> RetornarPostagemPaginada(int pagina, int quantidade)
         {
-            throw new NotImplementedException();
+            return _repo.RetornarPostagemPaginada(pagina, quantidade);
         }
 
         public Task<bool> VerificarPostagemAtiva(int idPostagem)
         {
-            throw new NotImplementedException();
+            return _repo.VerificarPostagemAtiva(idPostagem);
         }
     }
 }

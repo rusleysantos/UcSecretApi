@@ -38,6 +38,7 @@ namespace PerguntaSocoApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddCors();
             var key = Configuration.GetValue<string>("Secret");
             services.AddAuthentication(x =>
@@ -63,20 +64,16 @@ namespace PerguntaSocoApi
 
             services.AddScoped<IPostagemRepository, PostagemRepository>();
             services.AddScoped<IReacaoRepository, ReacaoRepository>();
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IControleRepository,ControleRepository> ();
-            //services.AddScoped<IOpcaoRepository, OpcaoRepository>();
-            //services.AddScoped<IOpcaoService, OpcaoService>();
-            //services.AddScoped<IEnunciadoRepository, EnunciadoRepository>();
-            //services.AddScoped<IEnunciadoService, EnunciadoService>();
-            //services.AddScoped<IPerguntaRepository, PerguntaRepository>();
-            //services.AddScoped<IPerguntaService, PerguntaService>();
-            //services.AddScoped<IInicioJogoService, InicioJogoService>();
-            //services.AddScoped<IInicioJogoRepository, InicioJogoRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-            //services.AddScoped<ISemaforoRepository, SemaforoRepository>();
-            //services.AddScoped<ISemaforoService, SemaforoService>();
+            services.AddScoped<IPostagemService, PostagemService>();
+            services.AddScoped<IReacaoService, ReacaoService>();
+            services.AddScoped<IControleService, ControleService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+
 
             services.AddDbContext<Context>(options =>
                options.UseSqlServer(
