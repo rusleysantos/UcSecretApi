@@ -19,7 +19,7 @@ namespace UcSecretApi.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult CriarPostagem([FromBody] PostagemDTO postagem)
+        public async Task<IActionResult> CriarPostagem([FromBody] PostagemDTO postagem)
         {
             try
             {
@@ -47,11 +47,11 @@ namespace UcSecretApi.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult DesativarPostagem([FromQuery] int idPostagem)
+        public async Task<IActionResult> DesativarPostagem([FromQuery] int idPostagem)
         {
             try
             {
-                if (_service.DesativarPostagem(idPostagem).Result)
+                if (await _service.DesativarPostagem(idPostagem))
                 {
                     return Ok(new MessageReturn("Sucesso",
                                                 "",
@@ -75,11 +75,11 @@ namespace UcSecretApi.Controllers
         }
 
         [HttpPost("[action]")]
-        public IActionResult VerificarPostagemAtiva([FromQuery] int idPostagem)
+        public async Task<IActionResult> VerificarPostagemAtiva([FromQuery] int idPostagem)
         {
             try
             {
-                if (_service.VerificarPostagemAtiva(idPostagem).Result)
+                if (await _service.VerificarPostagemAtiva(idPostagem))
                 {
                     return Ok(new MessageReturn("Sucesso",
                                                 "",
