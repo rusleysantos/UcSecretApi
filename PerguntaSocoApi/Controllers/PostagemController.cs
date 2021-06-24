@@ -18,7 +18,7 @@ namespace UcSecretApi.Controllers
             _service = service;
         }
 
-        [HttpPut("[action]")]
+        [HttpPost("[action]")]
         public IActionResult CriarPostagem([FromBody] PostagemDTO postagem)
         {
             try
@@ -36,6 +36,84 @@ namespace UcSecretApi.Controllers
                                                 false));
 
                 }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro",
+                                                     "Erro",
+                                                     false));
+
+            }
+        }
+
+        [HttpPost("[action]")]
+        public IActionResult DesativarPostagem([FromQuery] int idPostagem)
+        {
+            try
+            {
+                if (_service.DesativarPostagem(idPostagem).Result)
+                {
+                    return Ok(new MessageReturn("Sucesso",
+                                                "",
+                                                true));
+                }
+                else
+                {
+                    return Ok(new MessageReturn("Não foi possível",
+                                                "erro",
+                                                false));
+
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro",
+                                                     "Erro",
+                                                     false));
+
+            }
+        }
+
+        [HttpPost("[action]")]
+        public IActionResult VerificarPostagemAtiva([FromQuery] int idPostagem)
+        {
+            try
+            {
+                if (_service.VerificarPostagemAtiva(idPostagem).Result)
+                {
+                    return Ok(new MessageReturn("Sucesso",
+                                                "",
+                                                true));
+                }
+                else
+                {
+                    return Ok(new MessageReturn("Não foi possível",
+                                                "erro",
+                                                false));
+
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro",
+                                                     "Erro",
+                                                     false));
+
+            }
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> RetornarPostagemPaginada([FromQuery] int pagina, int quantidade)
+        {
+            try
+            {
+                return Ok(new MessageReturn(
+                    "Sucesso",
+                    "",
+                    true,
+                    await _service.RetornarPostagemPaginada(pagina, quantidade)));
+                
+               
             }
             catch
             {
