@@ -160,6 +160,21 @@ namespace Repository.Migrations
                 principalTable: "POSTAGENS",
                 principalColumn: "ID_POSTAGEM",
                 onDelete: ReferentialAction.Restrict);
+
+            //string[] columns = new string[] { "TITULO", "ARRAY_BYTE" };
+            ////string[,]values = new string[2,2] {{ "TITULO", "ARRAY_BYTE" }, { "ARRAY_BYTE", "FOFO" } };
+            //string[] values = new string[] { "TITULO", "ARRAY_BYTE" };
+
+            //migrationBuilder.InsertData(table: "FOTOS_FUNDO_POSTAGEM", columns: columns, values: values, default);
+            //migrationBuilder.Sql(@"INSERT INTO STATUS
+            //                        (DESCRIPTION, TIPO) 
+            //                       VALUES
+            //                        ('Em Andamento','TA'),
+            //                        ('Impedida','TA'),
+            //                        ('Concluída','TA'),
+            //                        ('Bloqueada','TA'),
+            //                        ('Excluir','TA')");
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
