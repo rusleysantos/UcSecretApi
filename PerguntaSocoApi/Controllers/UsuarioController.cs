@@ -18,6 +18,7 @@ namespace UcSecretApi.Controllers
             _service = service;
         }
 
+        [HttpPost("[action]")]
         public async Task<IActionResult> CriarUsuario([FromBody] Usuario usuario)
         {
             try
