@@ -125,7 +125,7 @@ namespace UcSecretApi.Controllers
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> RetornarPostagemPaginada([FromQuery] int idPostagem, int pagina, int quantidade)
+        public async Task<IActionResult> RetornarComentario([FromQuery] int idPostagem, int pagina, int quantidade)
         {
             try
             {
