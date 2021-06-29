@@ -35,7 +35,7 @@ namespace TeamNotationAPI.Controllers
                     return Ok(new MessageReturn("Login Efetuado Com Sucesso",
                                                 "",
                                                 true,
-                                                new LoginDTO(_token.GenerateToken(LoginReturn), LoginReturn.idUser, true)));
+                                                new LoginDTO(_token.GenerateToken(LoginReturn), LoginReturn.idUser, true, LoginReturn.Email, LoginReturn.Nome)));
                 }
                 else
                 {

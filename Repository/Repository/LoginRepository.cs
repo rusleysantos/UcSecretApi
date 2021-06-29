@@ -30,7 +30,10 @@ namespace Repository.Repository
                                     .Select(x => new LoginDTO
                                     {
                                         idUser = x.idUsuario,
-                                        Username = login.Username
+                                        Username = login.Username,
+                                        Nome = x.Nome,
+                                        Email = x.Email
+
                                     }).FirstOrDefaultAsync();
 
 

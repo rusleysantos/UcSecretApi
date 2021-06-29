@@ -112,8 +112,8 @@ namespace UcSecretApi.Controllers
                     "",
                     true,
                     await _service.RetornarPostagemPaginada(pagina, quantidade)));
-                
-               
+
+
             }
             catch
             {
@@ -123,5 +123,57 @@ namespace UcSecretApi.Controllers
 
             }
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> RetornarPostagemPaginada([FromQuery] int idPostagem, int pagina, int quantidade)
+        {
+            try
+            {
+                return Ok(new MessageReturn(
+                    "Sucesso",
+                    "",
+                    true,
+                    await _service.RetornarComentario(idPostagem, pagina, quantidade)));
+
+
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro",
+                                                     "Erro",
+                                                     false));
+
+            }
+        }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> PostarComentario([FromBody] PostagemComentarioDTO comentario)
+        {
+            try
+            {
+                if (await _service.PostarComentario(comentario))
+                {
+                    return Ok(new MessageReturn("Sucesso",
+                                                "",
+                                                true));
+                }
+                else
+                {
+                    return Ok(new MessageReturn("Não foi possível",
+                                                "erro",
+                                                false));
+
+                }
+            }
+            catch
+            {
+                return BadRequest(new MessageReturn("Erro",
+                                                     "Erro",
+                                                     false));
+
+            }
+        }
+
+
     }
 }

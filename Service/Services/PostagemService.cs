@@ -11,7 +11,7 @@ namespace Service.Services
     public class PostagemService : IPostagemService
     {
         public IPostagemRepository _repo { get; set; }
-        
+
         public PostagemService(IPostagemRepository repo)
         {
             _repo = repo;
@@ -29,7 +29,7 @@ namespace Service.Services
 
         public Task<List<FotoFundoPostagem>> RetornarFotoFundoPostagemPaginada(int pagina, int quantidade)
         {
-            return _repo.RetornarFotoFundoPostagemPaginada(pagina,quantidade);
+            return _repo.RetornarFotoFundoPostagemPaginada(pagina, quantidade);
         }
 
         public Task<List<Postagem>> RetornarPostagemPaginada(int pagina, int quantidade)
@@ -40,6 +40,16 @@ namespace Service.Services
         public Task<bool> VerificarPostagemAtiva(int idPostagem)
         {
             return _repo.VerificarPostagemAtiva(idPostagem);
+        }
+
+        public Task<bool> PostarComentario(PostagemComentarioDTO comentario)
+        {
+            return _repo.PostarComentario(comentario);
+        }
+
+        public Task<List<Comentario>> RetornarComentario(int idPostagem, int pagina, int quantidade)
+        {
+            return _repo.RetornarComentario(idPostagem, pagina, quantidade);
         }
     }
 }

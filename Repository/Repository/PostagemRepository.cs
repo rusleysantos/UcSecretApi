@@ -92,5 +92,29 @@ namespace Repository.Repository
                          .Take(quantidade)
                          .ToListAsync();
         }
+
+        public async Task<bool> PostarComentario(PostagemComentarioDTO comentario)
+        {
+            var comentarioAdd = new Comentario
+            {
+                DataHoraComentario = DateTime.Now,
+                Descricao = comentario.Comentario,
+                idPostagem = comentario.idPostagem
+            };
+
+            _con.COMENTARIOS.Add(comentarioAdd);
+
+            var salvar = await _con.SaveChangesAsync();
+            return salvar > 0;
+        }
+
+        public async Task<List<Comentario>> RetornarComentario(int idPostagem, int pagina, int quantidade)
+        {
+            return await _con.COMENTARIOS
+                       .Where(x=>x.idPostagem == idPostagem)
+                       .Skip((pagina - 1) * quantidade)
+                       .Take(quantidade)
+                       .ToListAsync();
+        }
     }
 }

@@ -73,6 +73,7 @@ namespace PerguntaSocoApi
             services.AddScoped<IControleService, ControleService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ITokenService, TokenService>();
 
 
             services.AddDbContext<Context>(options =>

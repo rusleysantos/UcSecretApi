@@ -11,14 +11,20 @@ namespace Repository.DTO
         public int idUser { get; set; }
         public bool AuthorizationStatus { get; set; }
         public string Token { get; set; }
+        public string Email { get; set; }
+        public string Nome { get; set; }
+
+
 
         public LoginDTO() { }
 
-        public LoginDTO(string token, int idUser, bool authorizationStatus)
+        public LoginDTO(string token, int idUser, bool authorizationStatus, string email, string nome)
         {
             this.Token = token;
             this.idUser = idUser;
             this.AuthorizationStatus = authorizationStatus;
+            this.Email = email;
+            this.Nome = nome;
         }
     }
 }
